@@ -1,0 +1,266 @@
+{
+    "clientMsgID": "06d58dc2ca9032b7b33a2d2a7550e686",
+    "serverMsgID": null,
+    "createTime": 1673530224751,
+    "sendTime": 1673530224751,
+    "sendID": "1813411521",
+    "recvID": null,
+    "msgFrom": 100,
+    "contentType": 114,
+    "platformID": 2,
+    "senderNickname": "测试1",
+    "senderFaceUrl": "ic_avatar_03",
+    "groupID": null,
+    "content": "{\"text\":\"aaa\",\"quoteMessage\":{\"clientMsgID\":\"2536c61652790746176c22097cd64c0e\",\"serverMsgID\":\"c76522c1d36ae376c7c3128543f94a48\",\"createTime\":1673529114307,\"sendTime\":1673529114573,\"sessionType\":2,\"sendID\":\"1813411521\",\"recvID\":\"1813411521\",\"msgFrom\":100,\"contentType\":106,\"platformID\":2,\"senderNickname\":\"测试1\",\"senderFaceUrl\":\"ic_avatar_03\",\"groupID\":\"3324826279\",\"content\":\"{\\\"text\\\":\\\" @15364932414  消息\\\",\\\"atUserList\\\":[\\\"15364932414\\\"],\\\"atUsersInfo\\\":[{\\\"atUserID\\\":\\\"15364932414\\\",\\\"groupNickname\\\":\\\"杨xx\\\"}],\\\"isAtSelf\\\":false}\",\"seq\":2658,\"isRead\":false,\"status\":2,\"offlinePush\":{},\"attachedInfo\":\"{\\\"groupHasReadInfo\\\":{\\\"hasReadCount\\\":0,\\\"groupMemberCount\\\":14},\\\"isPrivateChat\\\":false,\\\"burnDuration\\\":0,\\\"hasReadTime\\\":0,\\\"notSenderNotificationPush\\\":false,\\\"isEncryption\\\":false,\\\"inEncryptStatus\\\":false}\",\"pictureElem\":{\"sourcePicture\":{\"size\":0,\"width\":0,\"height\":0},\"bigPicture\":{\"size\":0,\"width\":0,\"height\":0},\"snapshotPicture\":{\"size\":0,\"width\":0,\"height\":0}},\"soundElem\":{\"dataSize\":0,\"duration\":0},\"videoElem\":{\"videoSize\":0,\"duration\":0,\"snapshotSize\":0,\"snapshotWidth\":0,\"snapshotHeight\":0},\"fileElem\":{\"fileSize\":0},\"mergeElem\":{},\"atElem\":{\"text\":\" @15364932414  消息\",\"atUserList\":[\"15364932414\"],\"atUsersInfo\":[{\"atUserID\":\"15364932414\",\"groupNickname\":\"杨xx\"}],\"isAtSelf\":false},\"faceElem\":{\"index\":0},\"locationElem\":{\"longitude\":0,\"latitude\":0},\"customElem\":{},\"quoteElem\":{},\"notificationElem\":{},\"messageEntityElem\":{},\"attachedInfoElem\":{\"groupHasReadInfo\":{\"hasReadCount\":0,\"groupMemberCount\":14},\"isPrivateChat\":false,\"burnDuration\":0,\"hasReadTime\":0,\"notSenderNotificationPush\":false,\"isEncryption\":false,\"inEncryptStatus\":false}}}",
+    "seq": 0,
+    "isRead": false,
+    "hasReadTime": 0,
+    "status": 1,
+    "offlinePush": {
+        "title": null,
+        "desc": null,
+        "ex": null,
+        "iOSPushSound": null,
+        "iOSBadgeCount": null
+    },
+    "attachedInfo": null,
+    "ex": null,
+    "ext": null,
+    "sessionType": 0,
+    "pictureElem": {
+        "sourcePath": null,
+        "sourcePicture": {
+            "uuid": null,
+            "type": null,
+            "size": 0,
+            "width": 0,
+            "height": 0,
+            "url": null
+        },
+        "bigPicture": {
+            "uuid": null,
+            "type": null,
+            "size": 0,
+            "width": 0,
+            "height": 0,
+            "url": null
+        },
+        "snapshotPicture": {
+            "uuid": null,
+            "type": null,
+            "size": 0,
+            "width": 0,
+            "height": 0,
+            "url": null
+        }
+    },
+    "soundElem": {
+        "uuid": null,
+        "soundPath": null,
+        "sourceUrl": null,
+        "dataSize": 0,
+        "duration": 0
+    },
+    "videoElem": {
+        "videoPath": null,
+        "videoUUID": null,
+        "videoUrl": null,
+        "videoType": null,
+        "videoSize": 0,
+        "duration": 0,
+        "snapshotPath": null,
+        "snapshotUUID": null,
+        "snapshotSize": 0,
+        "snapshotUrl": null,
+        "snapshotWidth": 0,
+        "snapshotHeight": 0
+    },
+    "fileElem": {
+        "filePath": null,
+        "uuid": null,
+        "sourceUrl": null,
+        "fileName": null,
+        "fileSize": 0
+    },
+    "atElem": {
+        "text": null,
+        "atUserList": null,
+        "isAtSelf": false,
+        "atUsersInfo": null,
+        "quoteMessage": null
+    },
+    "locationElem": {
+        "description": null,
+        "longitude": 0.0,
+        "latitude": 0.0
+    },
+    "customElem": {
+        "data": null,
+        "extension": null,
+        "description": null
+    },
+    "quoteElem": {
+        "text": "aaa",
+        "quoteMessage": {
+            "clientMsgID": "2536c61652790746176c22097cd64c0e",
+            "serverMsgID": "c76522c1d36ae376c7c3128543f94a48",
+            "createTime": 1673529114307,
+            "sendTime": 1673529114573,
+            "sendID": "1813411521",
+            "recvID": "1813411521",
+            "msgFrom": 100,
+            "contentType": 106,
+            "platformID": 2,
+            "senderNickname": "测试1",
+            "senderFaceUrl": "ic_avatar_03",
+            "groupID": "3324826279",
+            "content": "{\"text\":\" @15364932414  消息\",\"atUserList\":[\"15364932414\"],\"atUsersInfo\":[{\"atUserID\":\"15364932414\",\"groupNickname\":\"杨xx\"}],\"isAtSelf\":false}",
+            "seq": 2658,
+            "isRead": false,
+            "hasReadTime": 0,
+            "status": 2,
+            "offlinePush": {
+                "title": null,
+                "desc": null,
+                "ex": null,
+                "iOSPushSound": null,
+                "iOSBadgeCount": null
+            },
+            "attachedInfo": "{\"groupHasReadInfo\":{\"hasReadCount\":0,\"groupMemberCount\":14},\"isPrivateChat\":false,\"burnDuration\":0,\"hasReadTime\":0,\"notSenderNotificationPush\":false,\"isEncryption\":false,\"inEncryptStatus\":false}",
+            "ex": null,
+            "ext": null,
+            "sessionType": 2,
+            "pictureElem": {
+                "sourcePath": null,
+                "sourcePicture": {
+                    "uuid": null,
+                    "type": null,
+                    "size": 0,
+                    "width": 0,
+                    "height": 0,
+                    "url": null
+                },
+                "bigPicture": {
+                    "uuid": null,
+                    "type": null,
+                    "size": 0,
+                    "width": 0,
+                    "height": 0,
+                    "url": null
+                },
+                "snapshotPicture": {
+                    "uuid": null,
+                    "type": null,
+                    "size": 0,
+                    "width": 0,
+                    "height": 0,
+                    "url": null
+                }
+            },
+            "soundElem": {
+                "uuid": null,
+                "soundPath": null,
+                "sourceUrl": null,
+                "dataSize": 0,
+                "duration": 0
+            },
+            "videoElem": {
+                "videoPath": null,
+                "videoUUID": null,
+                "videoUrl": null,
+                "videoType": null,
+                "videoSize": 0,
+                "duration": 0,
+                "snapshotPath": null,
+                "snapshotUUID": null,
+                "snapshotSize": 0,
+                "snapshotUrl": null,
+                "snapshotWidth": 0,
+                "snapshotHeight": 0
+            },
+            "fileElem": {
+                "filePath": null,
+                "uuid": null,
+                "sourceUrl": null,
+                "fileName": null,
+                "fileSize": 0
+            },
+            "atElem": {
+                "text": " @15364932414  消息",
+                "atUserList": [
+                    "15364932414"
+                ],
+                "isAtSelf": false,
+                "atUsersInfo": [
+                    {
+                        "atUserID": "15364932414",
+                        "groupNickname": "杨xx"
+                    }
+                ],
+                "quoteMessage": null
+            },
+            "locationElem": {
+                "description": null,
+                "longitude": 0.0,
+                "latitude": 0.0
+            },
+            "customElem": {
+                "data": null,
+                "extension": null,
+                "description": null
+            },
+            "quoteElem": {
+                "text": null,
+                "quoteMessage": null
+            },
+            "mergeElem": {
+                "title": null,
+                "abstractList": null,
+                "multiMessage": null
+            },
+            "notificationElem": {
+                "detail": null,
+                "defaultTips": null
+            },
+            "faceElem": {
+                "index": 0,
+                "data": null
+            },
+            "attachedInfoElem": {
+                "groupHasReadInfo": {
+                    "hasReadUserIDList": [],
+                    "hasReadCount": 0,
+                    "groupMemberCount": 14
+                },
+                "isPrivateChat": false,
+                "hasReadTime": 0,
+                "burnDuration": 0,
+                "notSenderNotificationPush": false
+            }
+        }
+    },
+    "mergeElem": {
+        "title": null,
+        "abstractList": null,
+        "multiMessage": null
+    },
+    "notificationElem": {
+        "detail": null,
+        "defaultTips": null
+    },
+    "faceElem": {
+        "index": 0,
+        "data": null
+    },
+    "attachedInfoElem": {
+        "groupHasReadInfo": {
+            "hasReadUserIDList": [],
+            "hasReadCount": 0,
+            "groupMemberCount": 0
+        },
+        "isPrivateChat": false,
+        "hasReadTime": 0,
+        "burnDuration": 0,
+        "notSenderNotificationPush": false
+    }
+}
