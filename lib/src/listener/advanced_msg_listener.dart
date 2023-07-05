@@ -2,53 +2,52 @@ import 'package:flutter_openim_sdk/flutter_openim_sdk.dart';
 
 /// 消息监听
 class OnAdvancedMsgListener {
-  Function(Message msg)? onMsgDeleted;
-  Function(RevokedInfo info)? onNewRecvMessageRevoked;
-  Function(List<ReadReceiptInfo> list)? onRecvC2CReadReceipt;
-  Function(List<ReadReceiptInfo> list)? onRecvGroupReadReceipt;
-  Function(String msgID, List<KeyValue> list)? onRecvMessageExtensionsAdded;
+  Function(List<ReadReceiptInfo> list)? onRecvC2CMessageReadReceipt;
+  Function(List<ReadReceiptInfo> list)? onRecvGroupMessageReadReceipt;
+  Function(String msgId)? onRecvMessageRevoked;
+  Function(Message msg)? onRecvNewMessage;
+  Function(RevokedInfo info)? onRecvMessageRevokedV2;
   Function(String msgID, List<KeyValue> list)? onRecvMessageExtensionsChanged;
   Function(String msgID, List<String> list)? onRecvMessageExtensionsDeleted;
-  Function(Message msg)? onRecvNewMessage;
-  Function(Message msg)? onRecvOfflineNewMessage;
+  Function(String msgID, List<KeyValue> list)? onRecvMessageExtensionsAdded;
 
   /// Uniquely identifies
   String id;
 
   OnAdvancedMsgListener({
-    this.onMsgDeleted,
-    this.onNewRecvMessageRevoked,
-    this.onRecvC2CReadReceipt,
-    this.onRecvGroupReadReceipt,
-    this.onRecvMessageExtensionsAdded,
+    this.onRecvC2CMessageReadReceipt,
+    this.onRecvGroupMessageReadReceipt,
+    @deprecated this.onRecvMessageRevoked,
+    this.onRecvNewMessage,
+    this.onRecvMessageRevokedV2,
     this.onRecvMessageExtensionsChanged,
     this.onRecvMessageExtensionsDeleted,
-    this.onRecvNewMessage,
-    this.onRecvOfflineNewMessage,
+    this.onRecvMessageExtensionsAdded,
   }) : id = "id_${DateTime.now().microsecondsSinceEpoch}";
 
-  void msgDeleted(Message msg) {
-    onMsgDeleted?.call(msg);
-  }
-
-  /// 消息被撤回
-  void newRecvMessageRevoked(RevokedInfo info) {
-    onNewRecvMessageRevoked?.call(info);
-  }
-
   /// C2C消息已读回执
-  void recvC2CReadReceipt(List<ReadReceiptInfo> list) {
-    onRecvC2CReadReceipt?.call(list);
+  void recvC2CMessageReadReceipt(List<ReadReceiptInfo> list) {
+    onRecvC2CMessageReadReceipt?.call(list);
   }
 
   ///  群消息已读回执
-  void recvGroupReadReceipt(List<ReadReceiptInfo> list) {
-    onRecvGroupReadReceipt?.call(list);
+  void recvGroupMessageReadReceipt(List<ReadReceiptInfo> list) {
+    onRecvGroupMessageReadReceipt?.call(list);
   }
 
-  /// 收到拓展消息kv新增
-  void recvMessageExtensionsAdded(String msgID, List<KeyValue> list) {
-    onRecvMessageExtensionsAdded?.call(msgID, list);
+  /// 消息被撤回
+  void recvMessageRevoked(String msgId) {
+    onRecvMessageRevoked?.call(msgId);
+  }
+
+  /// 收到了一条新消息
+  void recvNewMessage(Message msg) {
+    onRecvNewMessage?.call(msg);
+  }
+
+  /// 消息被撤回
+  void recvMessageRevokedV2(RevokedInfo info) {
+    onRecvMessageRevokedV2?.call(info);
   }
 
   /// 收到拓展消息kv改变
@@ -62,12 +61,8 @@ class OnAdvancedMsgListener {
     onRecvMessageExtensionsDeleted?.call(msgID, list);
   }
 
-  /// 收到了一条新消息
-  void recvNewMessage(Message msg) {
-    onRecvNewMessage?.call(msg);
-  }
-
-  void recvOfflineNewMessage(Message msg) {
-    onRecvOfflineNewMessage?.call(msg);
+  /// 收到拓展消息kv新增
+  void recvMessageExtensionsAdded(String msgID, List<KeyValue> list) {
+    onRecvMessageExtensionsAdded?.call(msgID, list);
   }
 }

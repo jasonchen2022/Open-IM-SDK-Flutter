@@ -25,11 +25,6 @@ public class OnGroupListener implements open_im_sdk_callback.OnGroupListener {
     }
 
     @Override
-    public void onGroupDismissed(String s) {
-        CommonUtil.emitEvent("groupListener", "onGroupDismissed", s);
-    }
-
-    @Override
     public void onGroupInfoChanged(String s) {
         CommonUtil.emitEvent("groupListener", "onGroupInfoChanged", s);
     }

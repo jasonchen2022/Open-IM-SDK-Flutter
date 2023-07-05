@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/services.dart';
 import 'package:flutter_openim_sdk/flutter_openim_sdk.dart';
 
@@ -81,6 +79,19 @@ class ConversationManager {
           .then((value) =>
               Utils.toList(value, (map) => ConversationInfo.fromJson(map)));
 
+  /// 通过会话id删除指定会话
+  /// [conversationID] 被删除的会话的id
+  Future deleteConversation({
+    required String conversationID,
+    String? operationID,
+  }) =>
+      _channel.invokeMethod(
+          'deleteConversation',
+          _buildParam({
+            "conversationID": conversationID,
+            "operationID": Utils.checkOperationID(operationID),
+          }));
+
   /// 设置会话草稿
   /// [conversationID] 会话id
   /// [draftText] 草稿
@@ -113,21 +124,20 @@ class ConversationManager {
             "operationID": Utils.checkOperationID(operationID),
           }));
 
-  /// 置顶会话
-  /// [conversationID] 会话id
-  Future hideConversation({
-    required String conversationID,
+  /// 标记群聊会话已读
+  /// [groupID] 群id
+  Future<dynamic> markGroupMessageHasRead({
+    required String groupID,
     String? operationID,
   }) =>
       _channel.invokeMethod(
-          'hideConversation',
+          'markGroupMessageHasRead',
           _buildParam({
-            "conversationID": conversationID,
+            'groupID': groupID,
             "operationID": Utils.checkOperationID(operationID),
           }));
 
   /// 获取未读消息总数
-  /// int.tryParse(count) ?? 0;
   Future<dynamic> getTotalUnreadMsgCount({
     String? operationID,
   }) =>
@@ -140,29 +150,29 @@ class ConversationManager {
   /// 查询会话id
   /// [sourceID] 如果是单聊值传用户ID，如果是群聊值传组ID
   /// [sessionType] 参考[ConversationType]
-  // Future<dynamic> getConversationIDBySessionType({
-  //   required String sourceID,
-  //   required int sessionType,
-  // }) =>
-  //     _channel.invokeMethod(
-  //         'getConversationIDBySessionType',
-  //         _buildParam({
-  //           "sourceID": sourceID,
-  //           "sessionType": sessionType,
-  //         }));
+  Future<dynamic> getConversationIDBySessionType({
+    required String sourceID,
+    required int sessionType,
+  }) =>
+      _channel.invokeMethod(
+          'getConversationIDBySessionType',
+          _buildParam({
+            "sourceID": sourceID,
+            "sessionType": sessionType,
+          }));
 
   /// 消息免打扰设置
-  /// [conversationID] 会话id
+  /// [conversationIDList] 会话id列表
   /// [status] 0：正常；1：不接受消息；2：接受在线消息不接受离线消息；
   Future<dynamic> setConversationRecvMessageOpt({
-    required String conversationID,
+    required List<String> conversationIDList,
     required int status,
     String? operationID,
   }) =>
       _channel.invokeMethod(
           'setConversationRecvMessageOpt',
           _buildParam({
-            "conversationID": conversationID,
+            "conversationIDList": conversationIDList,
             "status": status,
             "operationID": Utils.checkOperationID(operationID),
           }));
@@ -186,13 +196,13 @@ class ConversationManager {
   /// 阅后即焚
   /// [conversationID] 会话id
   /// [isPrivate] true：开启，false：关闭
-  Future<dynamic> setConversationPrivateChat({
+  Future<dynamic> setOneConversationPrivateChat({
     required String conversationID,
     required bool isPrivate,
     String? operationID,
   }) =>
       _channel.invokeMethod(
-          'setConversationPrivateChat',
+          'setOneConversationPrivateChat',
           _buildParam({
             "conversationID": conversationID,
             "isPrivate": isPrivate,
@@ -201,25 +211,12 @@ class ConversationManager {
 
   /// 删除本地以及服务器的会话
   /// [conversationID] 会话ID
-  Future<dynamic> deleteConversationAndDeleteAllMsg({
+  Future<dynamic> deleteConversationFromLocalAndSvr({
     required String conversationID,
     String? operationID,
   }) =>
       _channel.invokeMethod(
-          'deleteConversationAndDeleteAllMsg',
-          _buildParam({
-            "conversationID": conversationID,
-            "operationID": Utils.checkOperationID(operationID),
-          }));
-
-  /// 清空会话里的消息
-  /// [conversationID] 会话ID
-  Future<dynamic> clearConversationAndDeleteAllMsg({
-    required String conversationID,
-    String? operationID,
-  }) =>
-      _channel.invokeMethod(
-          'clearConversationAndDeleteAllMsg',
+          'deleteConversationFromLocalAndSvr',
           _buildParam({
             "conversationID": conversationID,
             "operationID": Utils.checkOperationID(operationID),
@@ -249,17 +246,8 @@ class ConversationManager {
           }));
 
   /// 查询@所有人标识
-  Future<dynamic> getAtAllTag({
-    String? operationID,
-  }) =>
-      _channel.invokeMethod(
-          'getAtAllTag',
-          _buildParam({
-            "operationID": Utils.checkOperationID(operationID),
-          }));
-
-  /// 查询@所有人标识
-  String get atAllTag => 'AtAllTag';
+  Future<dynamic> getAtAllTag() =>
+      _channel.invokeMethod('getAtAllTag', _buildParam({}));
 
   /// 全局免打扰
   /// [status] 0：正常；1：不接受消息；2：接受在线消息不接受离线消息；
@@ -277,30 +265,16 @@ class ConversationManager {
   /// 设置阅后即焚时长
   /// [conversationID] 会话id
   /// [burnDuration] 时长s，默认30s
-  Future<dynamic> setConversationBurnDuration({
+  Future<dynamic> setOneConversationBurnDuration({
     required String conversationID,
     int burnDuration = 30,
     String? operationID,
   }) =>
       _channel.invokeMethod(
-          'setConversationBurnDuration',
+          'setOneConversationBurnDuration',
           _buildParam({
             "conversationID": conversationID,
             "burnDuration": burnDuration,
-            "operationID": Utils.checkOperationID(operationID),
-          }));
-
-  /// 标记消息已读
-  /// [conversationID] 会话ID
-  /// [messageIDList] 被标记的消息clientMsgID
-  Future markConversationMessageAsRead({
-    required String conversationID,
-    String? operationID,
-  }) =>
-      _channel.invokeMethod(
-          'markConversationMessageAsRead',
-          _buildParam({
-            "conversationID": conversationID,
             "operationID": Utils.checkOperationID(operationID),
           }));
 
@@ -331,7 +305,6 @@ class ConversationManager {
 
   static Map _buildParam(Map param) {
     param["ManagerName"] = "conversationManager";
-    log('param: $param');
     return param;
   }
 }

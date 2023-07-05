@@ -36,7 +36,7 @@ public class ConversationManager extends BaseManager {
         Open_im_sdk.getOneConversation(
                 new OnBaseListener(result, methodCall),
                 value(methodCall, "operationID"),
-                value(methodCall, "sessionType"),
+                int2long(methodCall, "sessionType"),
                 value(methodCall, "sourceID")
         );
     }
@@ -49,6 +49,13 @@ public class ConversationManager extends BaseManager {
         );
     }
 
+    public void deleteConversation(MethodCall methodCall, MethodChannel.Result result) {
+        Open_im_sdk.deleteConversation(
+                new OnBaseListener(result, methodCall),
+                value(methodCall, "operationID"),
+                value(methodCall, "conversationID")
+        );
+    }
 
     public void setConversationDraft(MethodCall methodCall, MethodChannel.Result result) {
         Open_im_sdk.setConversationDraft(
@@ -68,19 +75,19 @@ public class ConversationManager extends BaseManager {
         );
     }
 
-    public void hideConversation(MethodCall methodCall, MethodChannel.Result result) {
-        Open_im_sdk.hideConversation(
-                new OnBaseListener(result, methodCall),
-                value(methodCall, "operationID"),
-                value(methodCall, "conversationID")
-        );
-    }
+//    public void markSingleMessageHasRead(MethodCall methodCall, MethodChannel.Result result) {
+//        Open_im_sdk.markSingleMessageHasRead(
+//                new OnBaseListener(result, methodCall),
+//                value(methodCall, "operationID"),
+//                value(methodCall, "userID")
+//        );
+//    }
 
-    public void markConversationMessageAsRead(MethodCall methodCall, MethodChannel.Result result) {
-        Open_im_sdk.markConversationMessageAsRead(
+    public void markGroupMessageHasRead(MethodCall methodCall, MethodChannel.Result result) {
+        Open_im_sdk.markGroupMessageHasRead(
                 new OnBaseListener(result, methodCall),
                 value(methodCall, "operationID"),
-                value(methodCall, "conversationID")
+                value(methodCall, "groupID")
         );
     }
 
@@ -93,7 +100,6 @@ public class ConversationManager extends BaseManager {
 
     public void getConversationIDBySessionType(MethodCall methodCall, MethodChannel.Result result) {
         CommonUtil.runMainThreadReturn(result, Open_im_sdk.getConversationIDBySessionType(
-                value(methodCall, "operationID"),
                 value(methodCall, "sourceID"),
                 int2long(methodCall, "sessionType")));
     }
@@ -102,7 +108,7 @@ public class ConversationManager extends BaseManager {
         Open_im_sdk.setConversationRecvMessageOpt(
                 new OnBaseListener(result, methodCall),
                 value(methodCall, "operationID"),
-                value(methodCall, "conversationID"),
+                jsonValue(methodCall, "conversationIDList"),
                 int2long(methodCall, "status")
         );
     }
@@ -115,8 +121,8 @@ public class ConversationManager extends BaseManager {
         );
     }
 
-    public void setConversationPrivateChat(MethodCall methodCall, MethodChannel.Result result) {
-        Open_im_sdk.setConversationPrivateChat(
+    public void setOneConversationPrivateChat(MethodCall methodCall, MethodChannel.Result result) {
+        Open_im_sdk.setOneConversationPrivateChat(
                 new OnBaseListener(result, methodCall),
                 value(methodCall, "operationID"),
                 value(methodCall, "conversationID"),
@@ -124,16 +130,8 @@ public class ConversationManager extends BaseManager {
         );
     }
 
-    public void clearConversationAndDeleteAllMsg(MethodCall methodCall, MethodChannel.Result result) {
-        Open_im_sdk.clearConversationAndDeleteAllMsg(
-                new OnBaseListener(result, methodCall),
-                value(methodCall, "operationID"),
-                value(methodCall, "conversationID")
-        );
-    }
-
-    public void deleteConversationAndDeleteAllMsg(MethodCall methodCall, MethodChannel.Result result) {
-        Open_im_sdk.deleteConversationAndDeleteAllMsg(
+    public void deleteConversationFromLocalAndSvr(MethodCall methodCall, MethodChannel.Result result) {
+        Open_im_sdk.deleteConversationFromLocalAndSvr(
                 new OnBaseListener(result, methodCall),
                 value(methodCall, "operationID"),
                 value(methodCall, "conversationID")
@@ -156,7 +154,7 @@ public class ConversationManager extends BaseManager {
     }
 
     public void getAtAllTag(MethodCall methodCall, MethodChannel.Result result) {
-        CommonUtil.runMainThreadReturn(result, Open_im_sdk.getAtAllTag(value(methodCall, "operationID")));
+        CommonUtil.runMainThreadReturn(result, Open_im_sdk.getAtAllTag());
     }
 
     public void setGlobalRecvMessageOpt(MethodCall methodCall, MethodChannel.Result result) {
@@ -167,8 +165,8 @@ public class ConversationManager extends BaseManager {
         );
     }
 
-    public void setConversationBurnDuration(MethodCall methodCall, MethodChannel.Result result) {
-        Open_im_sdk.setConversationBurnDuration(
+    public void setOneConversationBurnDuration(MethodCall methodCall, MethodChannel.Result result) {
+        Open_im_sdk.setOneConversationBurnDuration(
                 new OnBaseListener(result, methodCall),
                 value(methodCall, "operationID"),
                 value(methodCall, "conversationID"),

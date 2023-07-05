@@ -14,16 +14,16 @@ class UserManager {
   }
 
   /// 获取用户资料
-  /// [userIDList] 用户ID列表
+  /// [uidList] 用户ID列表
   Future<List<UserInfo>> getUsersInfo({
-    required List<String> userIDList,
+    required List<String> uidList,
     String? operationID,
   }) =>
       _channel
           .invokeMethod(
               'getUsersInfo',
               _buildParam({
-                'userIDList': userIDList,
+                'uidList': uidList,
                 'operationID': Utils.checkOperationID(operationID),
               }))
           .then((value) => Utils.toList(value, (v) => UserInfo.fromJson(v)));

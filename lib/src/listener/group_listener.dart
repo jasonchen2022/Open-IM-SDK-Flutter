@@ -6,7 +6,6 @@ class OnGroupListener {
   Function(GroupApplicationInfo info)? onGroupApplicationAdded;
   Function(GroupApplicationInfo info)? onGroupApplicationDeleted;
   Function(GroupApplicationInfo info)? onGroupApplicationRejected;
-  Function(GroupInfo info)? onGroupDismissed;
   Function(GroupInfo info)? onGroupInfoChanged;
   Function(GroupMembersInfo info)? onGroupMemberAdded;
   Function(GroupMembersInfo info)? onGroupMemberDeleted;
@@ -19,7 +18,6 @@ class OnGroupListener {
     this.onGroupApplicationAdded,
     this.onGroupApplicationDeleted,
     this.onGroupApplicationRejected,
-    this.onGroupDismissed,
     this.onGroupInfoChanged,
     this.onGroupMemberAdded,
     this.onGroupMemberDeleted,
@@ -46,10 +44,6 @@ class OnGroupListener {
   /// 群申请已被拒绝
   void groupApplicationRejected(GroupApplicationInfo info) {
     onGroupApplicationRejected?.call(info);
-  }
-
-  void groupDismissed(GroupInfo info) {
-    onGroupDismissed?.call(info);
   }
 
   /// 群资料发生改变

@@ -1,12 +1,3 @@
-## 3.0.0
-
-- The super update is not compatible with the previous version
-
-
-## 2.3.5+4
-
-- Fix bug
-
 ## 2.3.5+3
 
 - Fix bug for signaling

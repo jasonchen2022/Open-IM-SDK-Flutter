@@ -14,5 +14,4 @@ class ListenerType {
   static const customBusinessListener = "customBusinessListener";
   static const messageKvInfoListener = "messageKvInfoListener";
   static const listenerForService = "listenerForService";
-  static const putFileListener = "putFileListener";
 }

@@ -17,7 +17,7 @@ public class UserManager: BaseServiceManager {
     }
 
     func getUsersInfo(methodCall: FlutterMethodCall, result: @escaping FlutterResult) {
-        Open_im_sdkGetUsersInfo(BaseCallback(result: result), methodCall[string: "operationID"], methodCall[jsonString: "userIDList"])
+        Open_im_sdkGetUsersInfo(BaseCallback(result: result), methodCall[string: "operationID"], methodCall[jsonString: "uidList"])
     }
     
     func setSelfInfo(methodCall: FlutterMethodCall, result: @escaping FlutterResult) {

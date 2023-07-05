@@ -18,7 +18,7 @@ public class UserManager extends BaseManager {
         Open_im_sdk.getUsersInfo(
                 new OnBaseListener(result, methodCall),
                 value(methodCall, "operationID"),
-                jsonValue(methodCall, "userIDList"));
+                jsonValue(methodCall, "uidList"));
     }
 
     public void setSelfInfo(MethodCall methodCall, MethodChannel.Result result) {
